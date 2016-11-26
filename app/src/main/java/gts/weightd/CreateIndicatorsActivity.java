@@ -59,8 +59,8 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
     protected void onResume() {
         super.onResume();
         Intent i = this.getIntent();
-        int id = i.getIntExtra("changeColor", 000000);
-        Toast.makeText(this, "" + id, Toast.LENGTH_SHORT).show();
+        //int id = i.getIntExtra("changeColor", 000000);
+        //Toast.makeText(this, "" + id, Toast.LENGTH_SHORT).show();
         }
 
     }
