@@ -109,5 +109,13 @@
         android:textColor= "@color/textColor"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/indicatorSaveButton"
+        android:text="@string/indicator_save_button_text"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
 
 </RelativeLayout>

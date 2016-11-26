@@ -1,14 +1,19 @@
 package gts.weightd;
 
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.R.id.empty;
 import static gts.weightd.R.id.circleButton;
+import static gts.weightd.R.id.indicatorSaveButton;
 
 public class CreateIndicatorsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -16,6 +21,21 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
     Button colorButton;
     Bundle extras;
 
+    EditText nameText;
+    EditText unitText;
+    Button saveButton;
+    Indicator currentIndicator;
+
+    String newIndicatorName;
+    String newIndicatorUnit;
+
+    List<Indicator> indicatorList = new ArrayList<>();
+    Indicator testIndicator = new Indicator("Red", "Flabs", "Metric Butts");
+
+    int i = 0;
+
+
+    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +43,15 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
         setContentView(R.layout.activity_create_indicators);
         Button colorButton = (Button) findViewById(circleButton);
         colorButton.setOnClickListener(this);
+
+        nameText = (EditText) findViewById((R.id.indicatorNameEditText));
+        unitText = (EditText) findViewById(R.id.indicatorUnitEditText);
+        saveButton = (Button) findViewById(R.id.indicatorSaveButton);
+        saveButton.setOnClickListener(this);
+
+
+
+        indicatorList.add(testIndicator);
 
 
 
@@ -38,7 +67,6 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
         you're also going to need to figure out how to create a list view and then take the
         results of this activity and add to an array which will populate that list-view.         */
 
-
     }
 
     @Override
@@ -50,6 +78,32 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
                 Intent intent = new Intent(this, ColorPickerActivity.class);
 //                //intent.putExtra(EXTRA_MESSAGE, message);
                 startActivity(intent);
+
+                break;
+
+            case indicatorSaveButton:
+
+
+                newIndicatorName = String.valueOf(nameText.getText());
+                newIndicatorUnit = String.valueOf(unitText.getText());
+
+                currentIndicator = new Indicator("RED",newIndicatorName, newIndicatorUnit );
+                indicatorList.add(currentIndicator);
+
+                Toast.makeText(getApplicationContext(),indicatorList.get(i).getIndicatorName(),
+                        Toast.LENGTH_SHORT).show();
+                i++;
+
+                nameText.setText("");
+                unitText.setText("");
+
+                break;
+
+            default:
+                break;
+
+
+
 
 
         }
