@@ -29,13 +29,17 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
     String newIndicatorName;
     String newIndicatorUnit;
 
-    List<Indicator> indicatorList = new ArrayList<>();
-    Indicator testIndicator = new Indicator("Red", "Flabs", "Metric Butts");
+    Weightd appState;
+    List<Indicator> indicatorList;
+
+    Indicator testIndicator = new Indicator("Red", "Test Variable", "Test Units");
+
+
 
     int i = 0;
 
 
-    ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,8 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
 
 
 
+        appState = ((Weightd)getApplicationContext());
+        indicatorList = appState.indicatorGlobalArray;
         indicatorList.add(testIndicator);
 
 
