@@ -34,12 +34,11 @@ public class ColorPickerActivity extends AppCompatActivity
 
         picker = (ColorPicker) findViewById(R.id.picker);
         svBar = (SVBar) findViewById(R.id.svbar);
-        opacityBar = (OpacityBar) findViewById(R.id.opacitybar);
+
         button = (Button) findViewById(R.id.colorPickerChangeColorButton);
         submitButton = (Button) findViewById(R.id.colorSubmitButton);
 
         picker.addSVBar(svBar);
-        picker.addOpacityBar(opacityBar);
         picker.setOnColorChangedListener(this);
 
         button.setOnClickListener(this);
@@ -76,6 +75,8 @@ public class ColorPickerActivity extends AppCompatActivity
                 Bundle bundle = new Bundle();
                 bundle.putInt("changeColor", picker.getColor());
                 indicatorIntent.putExtras(bundle);
+                indicatorIntent.addFlags (FLAG_ACTIVITY_SINGLE_TOP);
+
                 startActivity(indicatorIntent);
 
                 break;

@@ -39,7 +39,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/indicatorNameEditText"
-
+        android:maxLength="10"
         android:padding="15dp"
         android:textAlignment="center"
         android:contentDescription="@string/app_name"
@@ -56,6 +56,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/indicatorUnitEditText"
+        android:maxLength="10"
         android:padding="15dp"
         android:textAlignment="center"
         android:contentDescription="units"

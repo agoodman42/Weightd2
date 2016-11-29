@@ -49,18 +49,8 @@
         android:layout_width="322dp"
         android:layout_height="112dp"
         android:layout_gravity="center"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/opacitybar"
-        android:layout_alignLeft="@+id/opacitybar"
-        android:layout_alignStart="@+id/opacitybar"/>
-
-    <com.larswerkman.holocolorpicker.OpacityBar
-        android:id="@+id/opacitybar"
-        android:layout_width="322dp"
-        android:layout_height="112dp"
-        android:layout_gravity="center"
+        android:layout_marginTop="28dp"
         android:layout_below="@+id/picker"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"/>
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
