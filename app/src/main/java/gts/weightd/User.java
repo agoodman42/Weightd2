@@ -4,47 +4,79 @@ import android.widget.Switch;
 
 public class User {
 
-    private String Name = "Test User";
-    private String Gender = "Male";
-    private boolean metric = false;
-    private double heightEnglish = 69.7;
-    private double targetWeight = 194.7;
-    private boolean loseWeight = true;
-    private boolean active = true;
+    private String Name;
+    private String Gender;
+    private boolean metric;
+    private double heightEnglish;
+    private double targetWeight;
+    private boolean loseWeight;
+    private boolean active;
 
-    public User(String name, String gender, boolean metric,
-                double heightEnglish, double targetWeight, boolean loseWeight, boolean active) {
+    public User(String name) {
+
+        this.Name = name;
+        this.Gender = "Male";
+        this.metric = false;
+        this.heightEnglish = 69.7;
+        this.targetWeight = 194.7;
+        this.loseWeight = true;
+        this.active = true;
+
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
         Name = name;
+    }
+
+    public String getGender() {
+        return Gender;
+    }
+
+    public void setGender(String gender) {
         Gender = gender;
+    }
+
+    public boolean isMetric() {
+        return metric;
+    }
+
+    public void setMetric(boolean metric) {
         this.metric = metric;
+    }
+
+    public double getHeightEnglish() {
+        return heightEnglish;
+    }
+
+    public void setHeightEnglish(double heightEnglish) {
         this.heightEnglish = heightEnglish;
+    }
+
+    public double getTargetWeight() {
+        return targetWeight;
+    }
+
+    public void setTargetWeight(double targetWeight) {
         this.targetWeight = targetWeight;
+    }
+
+    public boolean isLoseWeight() {
+        return loseWeight;
+    }
+
+    public void setLoseWeight(boolean loseWeight) {
         this.loseWeight = loseWeight;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
         this.active = active;
     }
-//
-    public User(Object[] Args){
-
-        this.Name = (String) Args[0];
-        this.Gender = (String) Args[1];
-        this.metric = (Boolean) Args[2];
-        this.heightEnglish = (Double) Args[3];
-        this.targetWeight = (Double) Args[4];
-        this.loseWeight = (Boolean) Args[5];
-        this.active = (Boolean) Args[6];
-    }
-    public User(){
-          Name = "Test User";
-          Gender = "Male";
-          metric = false;
-          heightEnglish = 69.7;
-          targetWeight = 194.7;
-          loseWeight = true;
-          active = true;
-
-
-
-    }
-
-
 }

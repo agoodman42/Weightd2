@@ -8,15 +8,16 @@ import java.util.List;
 
 public class Weightd extends Application {
 
-    public List<Indicator> indicatorGlobalArray;
-    public List<Entry> entryGlobalArray;
+    public List<Indicator> indicatorGlobalList;
+    public List<Entry> entryGlobalList;
 
 
 
     public Weightd() {
-        indicatorGlobalArray = new ArrayList<>();
+        indicatorGlobalList = new ArrayList<>();
+        entryGlobalList = new ArrayList<>();
 
-        entryGlobalArray = new ArrayList<>();
+
 
 
     }

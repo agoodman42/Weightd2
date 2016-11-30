@@ -16,7 +16,7 @@ import static gts.weightd.R.id.indicatorSaveButton;
 
 public class CreateIndicatorsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    int color;
+    int color = 000000;
     Button colorButton;
     Bundle extras;
     Drawable background;
@@ -26,11 +26,11 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
     Button saveButton;
     Indicator currentIndicator;
 
-    String newIndicatorName;
-    String newIndicatorUnit;
+    String newIndicatorName = "";
+    String newIndicatorUnit = "";
 
     Weightd appState;
-    List<Indicator> IndicatorList;
+    List<Indicator> indicatorList;
 
 
     @Override
@@ -50,7 +50,7 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
 
 
         appState = ((Weightd)getApplicationContext());
-        IndicatorList = appState.indicatorGlobalArray;
+        indicatorList = appState.indicatorGlobalList;
 
 
         extras = getIntent().getExtras();
@@ -61,8 +61,7 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
 
 
         }
-        else{Toast.makeText(getApplicationContext(),"Empty Color Value",
-                Toast.LENGTH_SHORT).show();}
+
     }
 
     /*
@@ -95,8 +94,8 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
                 newIndicatorName = String.valueOf(nameText.getText());
                 newIndicatorUnit = String.valueOf(unitText.getText());
 
-                currentIndicator = new Indicator(color,newIndicatorName, newIndicatorUnit );
-                IndicatorList.add(currentIndicator);
+                currentIndicator = new Indicator(newIndicatorName, newIndicatorUnit,color );
+                indicatorList.add(currentIndicator);
 
 
 
