@@ -20,7 +20,7 @@ public class Entry {
 
     }
 
-    public Entry(double value, double date, Indicator indicator, User user) {
+    public Entry(Indicator indicator, double value, double date,  User user) {
         this.value = value;
         this.date = date;
         this.mIndicator = indicator;

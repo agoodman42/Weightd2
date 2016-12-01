@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.List;
+import java.util.Map;
 
+import static gts.weightd.InterfaceHelper.blockNullText;
 import static gts.weightd.R.id.circleButton;
 import static gts.weightd.R.id.indicatorSaveButton;
 
@@ -30,7 +34,14 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
     String newIndicatorUnit = "";
 
     Weightd appState;
-    List<Indicator> indicatorList;
+    Map<String,Indicator> indicatorMap;
+
+    private boolean isEmpty(EditText etText)
+    {
+        return etText.getText().toString().trim().length() == 0;
+    }
+
+
 
 
     @Override
@@ -45,12 +56,14 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
         saveButton = (Button) findViewById(R.id.indicatorSaveButton);
         saveButton.setOnClickListener(this);
 
+        blockNullText(nameText,saveButton);
+        blockNullText(unitText,saveButton);
 
 
 
 
         appState = ((Weightd)getApplicationContext());
-        indicatorList = appState.indicatorGlobalList;
+        indicatorMap = appState.indicatorGlobalMap;
 
 
         extras = getIntent().getExtras();
@@ -76,6 +89,10 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
         results of this activity and add to an array which will populate that list-view.         */
 
 
+
+
+
+
     @Override
     public void onClick(View v) {
 
@@ -95,7 +112,7 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
                 newIndicatorUnit = String.valueOf(unitText.getText());
 
                 currentIndicator = new Indicator(newIndicatorName, newIndicatorUnit,color );
-                indicatorList.add(currentIndicator);
+                indicatorMap.put(newIndicatorName, currentIndicator);
 
 
 
