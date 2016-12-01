@@ -57,7 +57,7 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
         saveButton.setOnClickListener(this);
 
         blockNullText(nameText,saveButton);
-        blockNullText(unitText,saveButton);
+
 
 
 
