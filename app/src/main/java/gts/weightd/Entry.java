@@ -1,26 +1,22 @@
 package gts.weightd;
 
+import android.content.Context;
+
 public class Entry {
     private double value = 0;
-    private double date = 0;
+    private Integer date = 0;
     private Indicator mIndicator = new Indicator("Weight", "Lbs", 000000);
     private User user = new User("Test User");
     private String label;
     private String units;
     private float color;
 
-    public Entry() {
-        this.value = 0;
-        this.date = 0;
-        this.mIndicator = new Indicator("Weight", "Lbs", 000000);
-        this.user = new User("Test User");
-        this.label = mIndicator.getIndicatorName();
-        this.units = mIndicator.getIndicatorUnit();
-        this.color = mIndicator.getIndicatorColor();
+        // variable to hold context
+        private Context context;
 
-    }
+//save the context received via constructor in a local variable
 
-    public Entry(Indicator indicator, double value, double date,  User user) {
+    public Entry(Indicator indicator, double value, Integer date,  User user, Context context) {
         this.value = value;
         this.date = date;
         this.mIndicator = indicator;
@@ -28,6 +24,7 @@ public class Entry {
         this.label = indicator.getIndicatorName();
         this.units = indicator.getIndicatorUnit();
         this.color = indicator.getIndicatorColor();
+        this.context=context;
 
     }
 
@@ -39,11 +36,11 @@ public class Entry {
         this.value = value;
     }
 
-    public double getDate() {
+    public Integer getDate() {
         return date;
     }
 
-    public void setDate(double date) {
+    public void setDate(int date) {
         this.date = date;
     }
 
