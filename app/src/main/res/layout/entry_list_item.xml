@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                >
+
+    <TextView
+        android:text="entryLabel"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:id="@+id/entryLabel"
+        android:textColor="@color/textColor"
+        tools:text="Left Quadricep"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/entryColorImage"
+        android:layout_toEndOf="@+id/entryColorImage"/>
+
+    <TextView
+        android:text="TextView"
+        android:layout_height="wrap_content"
+        android:id="@+id/entryValueLabel"
+        android:layout_centerVertical="true"
+        tools:textColor="@color/textColor"
+        android:layout_toRightOf="@+id/entryLabel"
+        android:layout_width="100dp"
+        tools:text="280"
+
+        android:textAlignment="center"/>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/entryUnitLabel"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/entryValueLabel"
+        tools:text="inches"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:textColor="@color/textColor"
+        android:textAlignment="textEnd"
+        android:gravity="end"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/colored_circle"
+        android:id="@+id/entryColorImage"
+        tools:background="@drawable/colored_circle"
+        android:minHeight="25dp"
+        android:minWidth="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+</RelativeLayout>
+
