@@ -1,9 +1,11 @@
 package gts.weightd.Adapters;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,13 +16,13 @@ import gts.weightd.R;
 
 public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryViewHolder> {
 
-    private Entry[] mEntries;
-    private ArrayList mEntrySet;
+//    private Entry[] mEntries;
+    private ArrayList mEntryArrayList;
 
     public EntryAdapter(ArrayList<Entry> entries) {
 
         //mEntries = entries;
-        mEntrySet = entries;
+        mEntryArrayList = entries;
 
     }
 
@@ -37,17 +39,17 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryViewHol
     @Override
     public void onBindViewHolder(EntryViewHolder holder, int position) {
         //holder.bindEntry(mEntries[position]);
-        holder.bindEntry((Entry) mEntrySet.get(position));
+        holder.bindEntry((Entry) mEntryArrayList.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return mEntrySet.size();//mEntries.length;
+        return mEntryArrayList.size();//mEntries.length;
     }
 
     public class EntryViewHolder extends RecyclerView.ViewHolder {
-        public ImageView mEntryColor;
+        public Button mEntryColor;
         public TextView mEntryName;
         public TextView mEntryValue;
         public TextView mEntryUnits;
@@ -56,7 +58,7 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryViewHol
 
         public EntryViewHolder(View itemView) {
             super(itemView);
-            mEntryColor = (ImageView) itemView.findViewById(R.id.entryColorImage);
+            mEntryColor = (Button) itemView.findViewById(R.id.entryColorImage);
             mEntryName = (TextView) itemView.findViewById(R.id.entryLabel);
             mEntryValue = (TextView) itemView.findViewById(R.id.entryValueLabel);
             mEntryUnits = (TextView) itemView.findViewById(R.id.entryUnitLabel);
@@ -65,10 +67,11 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryViewHol
         public void bindEntry(Entry entry) {
             mEntryColor.setBackgroundColor((entry.getColor()));
             mEntryName.setText(entry.getLabel());
-            String valueString = String.format("",entry.getValue());
+            String valueString = String.format("%s",entry.getValue());
             mEntryValue.setText(valueString);
             mEntryUnits.setText(entry.getUnits());
 
         }
+
     }
 }

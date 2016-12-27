@@ -19,7 +19,8 @@ public class Entry {
 
 //save the context received via constructor in a local variable
 
-    public Entry(Indicator indicator, double value, Integer date,  User user, Context context) {
+    public Entry(Indicator indicator, double value, Integer date,  User user,
+                 Context context,int color) {
         this.value = value;
         this.mTime = date;
         this.mIndicator = indicator;
@@ -27,7 +28,8 @@ public class Entry {
         this.label = indicator.getIndicatorName();
         this.units = indicator.getIndicatorUnit();
         this.color = indicator.getIndicatorColor();
-        this.context=context;
+        this.context = context;
+        this.color = color;
 
     }
 
@@ -98,4 +100,5 @@ public class Entry {
         return mTime;
 
     }
+
 }

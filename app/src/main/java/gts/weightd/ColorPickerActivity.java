@@ -1,5 +1,6 @@
 package gts.weightd;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -70,14 +71,29 @@ public class ColorPickerActivity extends AppCompatActivity
             case R.id.colorSubmitButton:
 
 
-                Intent indicatorIntent = new Intent(ColorPickerActivity.this ,
-                        CreateIndicatorsActivity.class);
+//                Intent indicatorIntent = new Intent(ColorPickerActivity.this ,
+//                        CreateIndicatorsActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putInt("changeColor", picker.getColor());
+//                indicatorIntent.putExtras(bundle);
+//                indicatorIntent.addFlags (FLAG_ACTIVITY_SINGLE_TOP);
+//                startActivity(indicatorIntent);
+
+//                Intent output = new Intent();
+//                Bundle bundle = new Bundle();
+//                bundle.putInt("changeColor", picker.getColor());
+//                output.putExtras(bundle);
+//                setResult(RESULT_OK, output);
+//                finish();
+
+
+                Intent returnIntent = new Intent();
+
                 Bundle bundle = new Bundle();
                 bundle.putInt("changeColor", picker.getColor());
-                indicatorIntent.putExtras(bundle);
-                indicatorIntent.addFlags (FLAG_ACTIVITY_SINGLE_TOP);
-
-                startActivity(indicatorIntent);
+                returnIntent.putExtras(bundle);
+                setResult(Activity.RESULT_OK,returnIntent);
+                finish();
 
                 break;
 

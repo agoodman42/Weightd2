@@ -1,7 +1,11 @@
 package gts.weightd;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,10 +20,11 @@ import java.util.Map;
 
 import static gts.weightd.InterfaceHelper.blockNullText;
 import static gts.weightd.R.id.circleButton;
+import static gts.weightd.R.id.indicatorNameEditText;
 import static gts.weightd.R.id.indicatorSaveButton;
 
 public class CreateIndicatorsActivity extends AppCompatActivity implements View.OnClickListener {
-
+    static final int PICK_COLOR_REQUEST = 1;  // The request code
     int color = 000000;
     Button colorButton;
     Bundle extras;
@@ -34,46 +39,35 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
     String newIndicatorUnit = "";
 
     Weightd appState;
-    Map<String,Indicator> indicatorMap;
+    Map<String, Indicator> indicatorMap;
 
-    private boolean isEmpty(EditText etText)
-    {
+    private boolean isEmpty(EditText etText) {
         return etText.getText().toString().trim().length() == 0;
     }
-
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_indicators);
-        Button colorButton = (Button) findViewById(circleButton);
-        colorButton.setOnClickListener(this);
 
+
+        colorButton = (Button) findViewById(R.id.circleButton);
         nameText = (EditText) findViewById((R.id.indicatorNameEditText));
         unitText = (EditText) findViewById(R.id.indicatorUnitEditText);
         saveButton = (Button) findViewById(R.id.indicatorSaveButton);
         saveButton.setOnClickListener(this);
-
-        blockNullText(nameText,saveButton);
-
+        colorButton.setOnClickListener(this);
 
 
+        blockNullText(nameText, saveButton);
 
 
-        appState = ((Weightd)getApplicationContext());
+        appState = ((Weightd) getApplicationContext());
         indicatorMap = appState.indicatorGlobalMap;
 
 
-        extras = getIntent().getExtras();
 
-        if (extras != null) {
-            color = extras.getInt("changeColor");
-            colorButton.setBackgroundColor(color);
-
-
-        }
 
     }
 
@@ -89,19 +83,17 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
         results of this activity and add to an array which will populate that list-view.         */
 
 
-
-
-
-
     @Override
     public void onClick(View v) {
 
         switch (v.getId()) {
 
             case circleButton:
+                nameText.getText();
                 Intent intent = new Intent(this, ColorPickerActivity.class);
 //                //intent.putExtra(EXTRA_MESSAGE, message);
-                startActivity(intent);
+
+                startActivityForResult(intent, PICK_COLOR_REQUEST);
 
                 break;
 
@@ -111,9 +103,9 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
                 newIndicatorName = String.valueOf(nameText.getText());
                 newIndicatorUnit = String.valueOf(unitText.getText());
 
-                currentIndicator = new Indicator(newIndicatorName, newIndicatorUnit,color );
+                currentIndicator = new Indicator(newIndicatorName, newIndicatorUnit,
+                        color);
                 indicatorMap.put(newIndicatorName, currentIndicator);
-
 
 
                 nameText.setText("");
@@ -124,14 +116,29 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
             default:
                 break;
 
-
-
-
-
         }
     }
 
+    // Here we override onActivityResult to get the color from the activity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        if (requestCode == PICK_COLOR_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == Activity.RESULT_OK) {
+                if (data != null) {
+                     extras = data.getExtras();
 
+                if (extras != null) {
+                    color = extras.getInt("changeColor");
+                    colorButton.setBackgroundColor(color);
+
+
+            } else {
+                Toast.makeText(getApplicationContext(), "fail",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
 //    @Override
 //    protected void onNewIntent(Intent intent) {
 //        extras = getIntent().getExtras();
@@ -144,6 +151,10 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
 //                Toast.LENGTH_SHORT).show();}
 //    }
 
+        }
+        }
+    }
 }
+
 
 

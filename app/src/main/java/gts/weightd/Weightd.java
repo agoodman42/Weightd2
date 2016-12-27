@@ -51,7 +51,7 @@ public class Weightd extends Application {
         indicatorGlobalMap.put("Hydration", hydration);
 
         entryGlobalMap = new HashMap<String, Entry>();
-        emptyEntry = new Entry(weight,0,0,defaultUser,this);
+        emptyEntry = new Entry(weight,0,0,defaultUser,this,000000);
         entryGlobalMap.put("empty entry", emptyEntry);
 
     }

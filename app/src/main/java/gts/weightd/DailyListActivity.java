@@ -4,7 +4,7 @@ import android.app.ListActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class EntryListActivity extends ListActivity {
+public class DailyListActivity extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
