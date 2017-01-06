@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
     android:orientation="vertical"
-    tools:context="gts.weightd.ColorPickerActivity">
+    tools:context="gts.weightd.Activities.ColorPickerActivity">
 
     <com.larswerkman.holocolorpicker.ColorPicker
         android:id="@+id/picker"

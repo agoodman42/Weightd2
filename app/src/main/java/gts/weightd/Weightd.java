@@ -45,8 +45,8 @@ public class Weightd extends Application {
         userGlobalMap.put("default", defaultUser);
 
         indicatorGlobalMap = new HashMap<>();
-        Indicator weight = new Indicator("Weight", "lbs", 000000);
-        Indicator hydration = new Indicator("Hydration", "%", 000000);
+        Indicator weight = new Indicator("Weight", "lbs", -1645055);
+        Indicator hydration = new Indicator("Hydration", "%",-16718105);
         indicatorGlobalMap.put("Weight", weight);
         indicatorGlobalMap.put("Hydration", hydration);
 
@@ -55,4 +55,6 @@ public class Weightd extends Application {
         entryGlobalMap.put("empty entry", emptyEntry);
 
     }
+
+
 }

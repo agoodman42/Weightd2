@@ -1,26 +1,24 @@
-package gts.weightd;
+package gts.weightd.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.List;
 import java.util.Map;
+
+import gts.weightd.Activities.ColorPickerActivity;
+import gts.weightd.Indicator;
+import gts.weightd.R;
+import gts.weightd.Weightd;
 
 import static gts.weightd.InterfaceHelper.blockNullText;
 import static gts.weightd.R.id.circleButton;
-import static gts.weightd.R.id.indicatorNameEditText;
 import static gts.weightd.R.id.indicatorSaveButton;
 
 public class CreateIndicatorsActivity extends AppCompatActivity implements View.OnClickListener {
