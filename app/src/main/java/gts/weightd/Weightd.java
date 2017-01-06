@@ -15,7 +15,7 @@ import java.util.TimeZone;
 
 public class Weightd extends Application {
 
-
+//removed gitignore
 
     public Map<String, User> userGlobalMap;
     public Map<String, Indicator> indicatorGlobalMap;
