@@ -171,6 +171,10 @@ public class TrackActivity extends AppCompatActivity implements View.OnClickList
 ////        this.adapter = new EntryAdapter(mTodayEntryArray);
 ////        RecyclerView.setAdapter(this.adapter);
 
+
+        EntryDataSource dataSource = new EntryDataSource(this);
+
+
     }
 
 
@@ -197,7 +201,7 @@ public class TrackActivity extends AppCompatActivity implements View.OnClickList
                 currentIndicator = indicatorMap.get(spinText);
 
 
-                currentEntry = new Entry(currentIndicator, valueDouble,
+                currentEntry = new Entry(currentIndicator,valueDouble,
                         TimeManager.getInstance(this).getIntDayOfYear(),
                         userMap.get("default"), this, currentIndicator.getIndicatorColor());
 
@@ -273,7 +277,7 @@ public class TrackActivity extends AppCompatActivity implements View.OnClickList
     protected void onResume() {
         super.onResume();
         //instatiate our entry datasource to create our sqlite database
-        EntryDataSource dataSource = new EntryDataSource(this);
+//        EntryDataSource dataSource = new EntryDataSource(this);
 
     }
 

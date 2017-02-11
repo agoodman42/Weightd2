@@ -34,6 +34,8 @@ public class EntryDataSource {
         ContentValues entryValues = new ContentValues();
         entryValues.put(WeightdSQLiteHelper.COLUMN_ENTRY_LABEL, entry.getLabel());
         entryValues.put(WeightdSQLiteHelper.COLUMN_ENTRY_VALUE, entry.getValue());
+        entryValues.put(WeightdSQLiteHelper.COLUMN_ENTRY_USER, entry.getValue());
+
         long entryID = database.insert(WeightdSQLiteHelper.ENTRY_TABLE,null,entryValues);
 
 
@@ -41,6 +43,8 @@ public class EntryDataSource {
         database.endTransaction();
         close(database);
 
+
+       
 
 
     }

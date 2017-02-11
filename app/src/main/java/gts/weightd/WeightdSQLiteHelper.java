@@ -14,8 +14,8 @@ public class WeightdSQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ENTRY_LABEL = "LABEL";
     public static final String COLUMN_ENTRY_VALUE = "VALUE";
     public static final String COLUMN_ENTRY_TIME = "TIME";
-    public static final String COLUMN_ENTRY_UNITS = "UNITS";
-    public static final String COLUMN_ENTRY_COLOR = "COLOR";
+//    public static final String COLUMN_ENTRY_UNITS = "UNITS";
+//    public static final String COLUMN_ENTRY_COLOR = "COLOR";
     public static final String COLUMN_ENTRY_USER = "USER";
     public static final String COLUMN_FOREIGN_KEY_INDICATOR = "INDICATORS_ID";
 
