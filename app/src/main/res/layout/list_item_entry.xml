@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/entryRowLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/holo_blue_light"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp">
+
+    <TextView
+        android:id="@+id/entryLabel"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/entryColorImage"
+        android:layout_toRightOf="@+id/entryColorImage"
+        android:text="entryLabel"
+        android:textColor="@color/textColor"
+        tools:text="Left Quadricep" />
+
+    <TextView
+        android:id="@+id/entryValueLabel"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/entryLabel"
+        android:text="TextView"
+        android:textAlignment="center"
+        tools:text="280"
+
+        tools:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/entryUnitLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:layout_toRightOf="@+id/entryValueLabel"
+        android:gravity="end"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        android:textColor="@color/textColor"
+        tools:text="inches" />
+
+    <Button
+        android:id="@+id/entryColorImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/buttonBaseColor"
+        android:minHeight="25dp"
+        android:minWidth="25dp"
+        app:srcCompat="@drawable/colored_circle"
+        tools:background="@drawable/colored_circle" />
+</RelativeLayout>
+

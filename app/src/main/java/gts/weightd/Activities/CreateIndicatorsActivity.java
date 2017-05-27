@@ -12,10 +12,8 @@ import android.widget.Toast;
 
 import java.util.Map;
 
-import gts.weightd.Activities.ColorPickerActivity;
 import gts.weightd.Indicator;
 import gts.weightd.R;
-import gts.weightd.Weightd;
 
 import static gts.weightd.InterfaceHelper.blockNullText;
 import static gts.weightd.R.id.circleButton;
@@ -36,7 +34,7 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
     String newIndicatorName = "";
     String newIndicatorUnit = "";
 
-    Weightd appState;
+
     Map<String, Indicator> indicatorMap;
 
     private boolean isEmpty(EditText etText) {
@@ -61,8 +59,7 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
         blockNullText(nameText, saveButton);
 
 
-        appState = ((Weightd) getApplicationContext());
-        indicatorMap = appState.indicatorGlobalMap;
+
 
 
 
@@ -103,7 +100,7 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
 
                 currentIndicator = new Indicator(newIndicatorName, newIndicatorUnit,
                         color);
-                indicatorMap.put(newIndicatorName, currentIndicator);
+
 
 
                 nameText.setText("");
@@ -135,21 +132,10 @@ public class CreateIndicatorsActivity extends AppCompatActivity implements View.
             } else {
                 Toast.makeText(getApplicationContext(), "fail",
                         Toast.LENGTH_SHORT).show();
-            }
-        }
-//    @Override
-//    protected void onNewIntent(Intent intent) {
-//        extras = getIntent().getExtras();
-//
-//        if (extras != null) {
-//            color = extras.getInt("changeColor");
-//            colorButton.setBackgroundColor(Color.parseColor("#ffffff"));
-//        }
-//        else{Toast.makeText(getApplicationContext(),"fail",
-//                Toast.LENGTH_SHORT).show();}
-//    }
+                    }
+                 }
 
-        }
+            }
         }
     }
 }

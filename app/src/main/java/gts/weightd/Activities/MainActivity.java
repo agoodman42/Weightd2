@@ -8,12 +8,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import gts.weightd.R;
-import gts.weightd.TimeManager;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
- //   Weightd appState;
 
 
 
@@ -36,7 +34,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button aboutAppButton = (Button) findViewById(R.id.aboutButton);
         aboutAppButton.setOnClickListener(this);
 
- //       appState = ((Weightd) getApplicationContext());
+        Button indicatorListButton = (Button) findViewById(R.id.indicatorListButton);
+        indicatorListButton.setOnClickListener(this);
+
+        Button userListButton = (Button) findViewById(R.id.userListButton);
+        userListButton.setOnClickListener(this);
+
+        Button createUsersButton = (Button) findViewById(R.id.createUsersButton);
+        createUsersButton.setOnClickListener(this);
 
 
     }
@@ -52,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Toast.LENGTH_SHORT).show();
 
                 Intent trackIntent = new Intent(this, TrackActivity.class);
-                //intent.putExtra(EXTRA_MESSAGE, message);
                 startActivity(trackIntent);
 
 
@@ -76,26 +80,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(), "EntryList button works",
                         Toast.LENGTH_SHORT).show();
 
-                Intent entryListIntent = new Intent(this, DailyRecordListActivity.class);
-//                intent.putExtra(EXTRA_MESSAGE, message);
-                startActivity(entryListIntent);
+//                Intent entryListIntent = new Intent(this, DailyRecordListActivity.class);
+////                intent.putExtra(EXTRA_MESSAGE, message);
+//                startActivity(entryListIntent);
 
 
 
                 break;
 
-            case R.id.aboutButton:
+            case R.id.indicatorListButton:
 
-                Toast.makeText(getApplicationContext(),
-                        TimeManager.getInstance(this).getDayOfYear(),
+                Toast.makeText(getApplicationContext(), "Indicator List button works",
                         Toast.LENGTH_SHORT).show();
-
+                Intent indicatorListIntent = new Intent(this, IndicatorListActivity.class);
+                //intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(indicatorListIntent);
 
                 break;
+
+            case R.id.userListButton:
+
+                Toast.makeText(getApplicationContext(), "User List button works",
+                        Toast.LENGTH_SHORT).show();
+                Intent userListIntent = new Intent(this, UserListActivity.class);
+                //intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(userListIntent);
+
+                break;
+
+            case R.id.createUsersButton:
+
+                Toast.makeText(getApplicationContext(), "login button works",
+                        Toast.LENGTH_SHORT).show();
+                Intent loginListIntent = new Intent(this, CreateUsersActivity.class);
+                //intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(loginListIntent);
 
 
 
             default:
+
+
+
 
                 break;
 

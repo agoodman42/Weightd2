@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Entry {
+    private int mID = 0;
     private double value = 0;
     private Integer mTime = 0;
     private Indicator mIndicator = new Indicator("Weight", "Lbs", 000000);
@@ -13,7 +14,7 @@ public class Entry {
     private String mLabel;
     private String mUnits;
     private int mColor;
-    private int mID = 0;
+
 
         // variable to hold context
         private Context context;
